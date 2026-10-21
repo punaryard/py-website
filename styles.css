@@ -265,28 +265,28 @@ p { margin: 0; }
 
 .tilemap {
   display: grid; gap: 8px;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   grid-template-areas:
-    ".  pb hp uk ."
-    "rj rj up up br"
-    ".  mp mp mp .";
+    "pb pb hp hp uk uk"
+    "rj hr hr up up br"
+    "rj mp mp mp .  .";
 }
 .tile {
   text-align: left; font: inherit; color: var(--ink); cursor: pointer;
-  min-height: 112px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  min-height: 112px; padding: 14px; display: flex; flex-direction: column; justify-content: flex-start; gap: 8px;
   background: #fff; border: 2px solid var(--ink); border-radius: var(--radius-s);
   transition: background-color .15s;
 }
 .tile b { font-family: var(--display); font-weight: 800; font-stretch: 92%; font-size: 1rem; line-height: 1.1; overflow-wrap: anywhere; }
-.tile span { font-size: .82rem; color: var(--ink-soft); line-height: 1.35; }
+.tile span { margin-top: auto; font-size: .82rem; color: var(--ink-soft); line-height: 1.35; }
 .tile:hover, .tile.on { background: var(--hivis); }
 .t-pb { grid-area: pb; } .t-hp { grid-area: hp; } .t-uk { grid-area: uk; }
-.t-rj { grid-area: rj; } .t-up { grid-area: up; } .t-br { grid-area: br; } .t-mp { grid-area: mp; }
+.t-hr { grid-area: hr; } .t-rj { grid-area: rj; } .t-up { grid-area: up; } .t-br { grid-area: br; } .t-mp { grid-area: mp; }
 @media (max-width: 900px) { .area-grid { grid-template-columns: 1fr; } }
 @media (max-width: 620px) {
   .tilemap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "pb hp" "uk rj" "up br" "mp mp";
+    grid-template-areas: "pb hp" "hr uk" "rj up" "br mp";
   }
   .tile { min-height: 96px; }
 }
