@@ -358,3 +358,27 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--br
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- Hindi (second language, always beside the English) ---------- */
+[lang="hi"] { font-family: var(--body); letter-spacing: 0; font-stretch: 100%; font-style: normal; }
+.hi-sub { margin-top: 8px; font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 700; color: var(--steel); line-height: 1.35; }
+.section-head .hi-sub { margin-top: 8px; color: var(--steel); font-size: clamp(1.15rem, 2vw, 1.45rem); }
+.section-ink .section-head .hi-sub { color: var(--hivis); }
+.section-contact .hi-sub { color: var(--ink); }
+.hi-body { margin-top: 10px; font-size: 1.08rem; line-height: 1.7; color: var(--ink-soft); max-width: 34em; }
+.section-contact .hi-body { color: var(--ink); }
+.cta-hi { margin-top: 12px; font-weight: 600; color: var(--leaf); }
+.hi-line { display: block; margin-top: 4px; }
+.hi-tag { display: block; margin-top: 3px; font-size: .9rem; font-weight: 500; color: var(--ink-soft); line-height: 1.3; }
+.section-ink .hi-tag { color: #B8C1C4; }
+.frames h3 { flex-wrap: wrap; }
+.frames h3 .hi-tag { flex-basis: 100%; padding-left: 34px; margin-top: 0; }
+.deal h3 .hi-tag { font-size: 1rem; }
+.deal-pick .hi-tag { color: var(--ink); }
+.deal-hi { margin-top: 4px; font-weight: 500; }
+.deal-pick .deal-hi { color: var(--ink); }
+.hi-label { display: block; font-weight: 500; color: var(--ink-soft); }
+.hi-label-inline { font-weight: 500; color: var(--ink-soft); }
+.tile i { font-size: .92rem; font-weight: 600; color: var(--steel); margin-top: -6px; }
+.contact-list span i { display: block; font-weight: 500; font-size: .9rem; }
+.footer-hi { grid-column: 1 / -1; color: var(--paper); font-weight: 600; }

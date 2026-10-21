@@ -15,6 +15,16 @@
     'Uttarakhand'
   ];
 
+  var HINDI = {
+    'Bihar': 'बिहार',
+    'Himachal Pradesh': 'हिमाचल प्रदेश',
+    'Madhya Pradesh': 'मध्य प्रदेश',
+    'Punjab': 'पंजाब',
+    'Rajasthan': 'राजस्थान',
+    'Uttar Pradesh': 'उत्तर प्रदेश',
+    'Uttarakhand': 'उत्तराखंड'
+  };
+
   var ALL_STATES = [
     'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar',
     'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
@@ -98,11 +108,11 @@
     }
     if (SERVED.indexOf(state) !== -1) {
       checkResult.className = 'checker-result yes';
-      checkResult.textContent = 'Yes, we work in ' + state + '. Book a free site visit below.';
+      checkResult.textContent = 'Yes, we work in ' + state + '. Book a free site visit below. हाँ, हम ' + (HINDI[state] || state) + ' में काम करते हैं। नीचे मुफ़्त साइट विज़िट बुक करें।';
       if (formState) formState.value = state;
     } else {
       checkResult.className = 'checker-result no';
-      checkResult.textContent = 'Not yet. We only take jobs in Punjab, Uttar Pradesh, Bihar, Uttarakhand, Rajasthan, Himachal Pradesh and Madhya Pradesh.';
+      checkResult.textContent = 'Not yet. We only take jobs in Punjab, Uttar Pradesh, Bihar, Uttarakhand, Rajasthan, Himachal Pradesh and Madhya Pradesh. अभी नहीं। हम सिर्फ़ पंजाब, उत्तर प्रदेश, बिहार, उत्तराखंड, राजस्थान, हिमाचल प्रदेश और मध्य प्रदेश में काम करते हैं।';
     }
   }
 
@@ -144,20 +154,21 @@
       var mark = function (field, bad) { f[field].setAttribute('aria-invalid', bad ? 'true' : 'false'); };
 
       mark('name', !data.name);
-      if (!data.name) problems.push('your name');
+      if (!data.name) problems.push(['your name', 'अपना नाम']);
 
       var mobileOk = /^[6-9]\d{9}$/.test(data.mobile);
       mark('mobile', !mobileOk);
-      if (!mobileOk) problems.push('a 10-digit mobile number');
+      if (!mobileOk) problems.push(['a 10-digit mobile number', '10 अंकों का मोबाइल नंबर']);
 
       mark('state', !data.state);
-      if (!data.state) problems.push('your state');
+      if (!data.state) problems.push(['your state', 'राज्य']);
 
       mark('city', !data.city);
-      if (!data.city) problems.push('your city or town');
+      if (!data.city) problems.push(['your city or town', 'शहर या कस्बा']);
 
       if (problems.length) {
-        errorBox.textContent = 'Please add ' + problems.join(', ') + '.';
+        errorBox.textContent = 'Please add ' + problems.map(function (p) { return p[0]; }).join(', ') + '. ' +
+          'कृपया ' + problems.map(function (p) { return p[1]; }).join(', ') + ' भरें।';
         var firstBad = $('[aria-invalid="true"]', form);
         if (firstBad) firstBad.focus();
         return;
@@ -165,6 +176,7 @@
       errorBox.textContent = '';
 
       var lines = [
+        'नमस्ते PunarYard, मुझे साइट विज़िट चाहिए।',
         'Site visit request for PunarYard',
         'Name: ' + data.name,
         'Mobile: ' + data.mobile,
