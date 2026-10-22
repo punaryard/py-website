@@ -7,6 +7,7 @@
   // The only states PunarYard works in.
   var SERVED = [
     'Bihar',
+    'Delhi',
     'Haryana',
     'Himachal Pradesh',
     'Madhya Pradesh',
@@ -18,6 +19,7 @@
 
   var HINDI = {
     'Bihar': 'बिहार',
+    'Delhi': 'दिल्ली',
     'Haryana': 'हरियाणा',
     'Himachal Pradesh': 'हिमाचल प्रदेश',
     'Madhya Pradesh': 'मध्य प्रदेश',
@@ -114,7 +116,7 @@
       if (formState) formState.value = state;
     } else {
       checkResult.className = 'checker-result no';
-      checkResult.textContent = 'Not yet. We only take jobs in Punjab, Haryana, Uttar Pradesh, Bihar, Uttarakhand, Rajasthan, Himachal Pradesh and Madhya Pradesh. अभी नहीं। हम सिर्फ़ पंजाब, हरियाणा, उत्तर प्रदेश, बिहार, उत्तराखंड, राजस्थान, हिमाचल प्रदेश और मध्य प्रदेश में काम करते हैं।';
+      checkResult.textContent = 'Not yet. We only take jobs in Punjab, Haryana, Delhi, Uttar Pradesh, Bihar, Uttarakhand, Rajasthan, Himachal Pradesh and Madhya Pradesh. अभी नहीं। हम सिर्फ़ पंजाब, हरियाणा, दिल्ली, उत्तर प्रदेश, बिहार, उत्तराखंड, राजस्थान, हिमाचल प्रदेश और मध्य प्रदेश में काम करते हैं।';
     }
   }
 

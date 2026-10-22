@@ -256,7 +256,8 @@ p { margin: 0; }
 @media (max-width: 900px) { .steps-grid { grid-template-columns: 1fr; } }
 
 /* Area */
-.area-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.area-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(24px, 4vw, 40px); }
+.checker { max-width: 40rem; }
 .checker label { display: block; font-weight: 700; margin-bottom: 8px; }
 .checker select { width: 100%; max-width: 360px; }
 .checker-result { margin-top: 14px; min-height: 3.2em; font-weight: 500; }
@@ -265,11 +266,11 @@ p { margin: 0; }
 
 .tilemap {
   display: grid; gap: 8px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-template-areas:
-    "pb pb hp hp uk uk"
-    "rj hr hr up up br"
-    "rj mp mp mp .  .";
+    "pb pb hp hp uk uk ."
+    "rj hr hr dl up up br"
+    "rj mp mp mp mp .  .";
 }
 .tile {
   text-align: left; font: inherit; color: var(--ink); cursor: pointer;
@@ -281,12 +282,12 @@ p { margin: 0; }
 .tile span { margin-top: auto; font-size: .82rem; color: var(--ink-soft); line-height: 1.35; }
 .tile:hover, .tile.on { background: var(--hivis); }
 .t-pb { grid-area: pb; } .t-hp { grid-area: hp; } .t-uk { grid-area: uk; }
-.t-hr { grid-area: hr; } .t-rj { grid-area: rj; } .t-up { grid-area: up; } .t-br { grid-area: br; } .t-mp { grid-area: mp; }
+.t-hr { grid-area: hr; } .t-dl { grid-area: dl; } .t-rj { grid-area: rj; } .t-up { grid-area: up; } .t-br { grid-area: br; } .t-mp { grid-area: mp; }
 @media (max-width: 900px) { .area-grid { grid-template-columns: 1fr; } }
 @media (max-width: 620px) {
   .tilemap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "pb hp" "hr uk" "rj up" "br mp";
+    grid-template-areas: "pb hp" "hr dl" "uk rj" "up br" "mp mp";
   }
   .tile { min-height: 96px; }
 }
